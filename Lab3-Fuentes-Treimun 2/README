@@ -1,0 +1,16 @@
+Integrante:
+- Roberto Felipe Fuentes Zenteno - 201173037-2
+
+Supuestos:
+- La versión usada para realizar el laboratorio fue Python 3.5.1-0, usando  Anaconda 
+ 4.0.5.
+- Para algunas preguntas, se analizaron cosas que no estaban explicitamente dichas 
+ en el enunciado del laboratorio, con el fin de destacar ciertas cosas importantes.
+- Para algunos graficos, se usan escalas logarítmicas para poder apreciar bien
+ el resultado de ciertas graficas.
+
+Explicación:
+- A travez de lo investigado por nosotros mas las indicaciones del laboratorio, se 
+ implementaran algoritmos para la obtencion de valores propios, principalmente del 
+ valor propio dominante, ademas de comparar estos algoritmos y ver cual es mejor
+ tanto en tiempo como en cantidad de iteraciones.

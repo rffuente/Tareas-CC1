@@ -1,0 +1,628 @@
+\flushleft{\section{Fundamentos}}
+
+\paragraph{Ideas Útiles:}
+\begin{center}
+¿Cuál es la mejor forma de evaluar P(x)?
+\end{center}
+
+$$
+P(x) = c_{5} \, x^{4} + c_{4} \, x^{3} + c_{3} \, x^{2} + c_{2} \, x + c_{1}
+$$
+\subparagraph{Forma directa}
+
+$$
+\begin{array}{rcl}
+c_{5} \, x^{4}  & = &4\,x \\
+c_{4} \, x^{3}  & = &3\,x \\
+c_{3} \, x^{2}  & = &2\,x \\
+c_{2}    x      & = &1\,x \\
+c_{1} \, \,     & = &0\,x \\
+              &   &+\,4\,sumas\\ \hline
+              &   &14\ operaciones
+                   
+\end{array}
+$$
+
+\subsection{Forma Avanzada: (Horner's method)}
+
+$$ 
+P(x) = c_{	1} + x \, (c_{2} + x \, (c_{3} + x \, (c_{4} + c_{5} \, x))
+$$
+
+\begin{center}
+\emph{\underline{\# 8}}
+\end{center}
+
+\paragraph{Números Binarios:}
+
+$$
+B = ... b_{3} b_{2} b_{1} . b_{-1} b_{-2} b_{-3}...
+$$
+
+\subparagraph{Ejemplo}
+\begin{center}
+$(1001\centerdot01)_{2}$	
+\end{center}
+
+$$
+\begin{array}{rrrrrr}
+\Rightarrow 1 \cdot 2^{3}\ + & 0 \cdot 2^{2}\ + & 0 \cdot 2^{1}\ + & 1 \cdot 2^{0}\ + & 0 \cdot 2^{-1}\ + & 1 \cdot 2^{-2}\\
+8\hspace{4mm} + & 0\hspace{4mm} + & 0\hspace{4mm} + & 1\hspace{4mm} + & 0\hspace{6mm} + & \frac{1}{4}\hspace{6mm} \\ 
+\end{array}
+$$
+
+$$
+(9\centerdot25)_{10}
+$$
+
+\subparagraph{Pregunta}
+\begin{center}
+¿Qué es (0.$\overline{10})_{2}$ en base 10?
+\end{center}
+
+$$
+(0{\centerdot101010...})_{2}
+$$
+
+\vspace{3mm}
+
+$$
+(0\underbrace{\centerdot101010\ldots}_{2^{-1} + 2^{-3} + 2^{-5}\ldots})_{2} \hspace{3mm} = \sum_{i=0}^{\infty } 2^{-(2i+1)} \hspace{3mm} = \frac{1}{2} \cdot \sum_{i=0}^{\infty } (2^{-2})^i \hspace{3mm} = \frac{1}{2} \cdot \frac{1}{1-\frac{1}{4}} \hspace{3mm} = \frac{1}{2} \cdot \frac{4}{4} \hspace{3mm} = \frac{2}{3}
+$$
+
+\fbox{\parbox[c]{15cm} {\emph{Recuerde la serie geométrica:}
+$$ 1 + r + r^{2} + r^{3} +  \ldots \hspace{3mm} = \sum_{i=0}^{\infty } r^{i} \hspace{3mm} = \frac{1}{1-r}$$
+$$\hspace{2cm} \lvert r\rvert\ < 1$$}}
+
+\subsection{Notación de $``$ punto flotante$"$ de Números Reales ($\mathbb{R}$):}
+\begin{center}
+(\emph{\underline{IEEE 754 Floating point standard}})
+\end{center}
+\begin{center}
+\begin{large}
+\fbox{\parbox[c]{7cm} {$\underbrace{\pm}_{\text{signo}} \underbrace{1}_{{\text{siempre}}\,1} \centerdot\, \underbrace{bbbbbb \ldots}_{\text{mantisa}}\,  \cdot 2^{p\longmapsto {\text{exponente}}}$ }} $\rightarrow$ palabra (word)
+\end{large}
+\end{center} 
+
+\subparagraph{Ejemplo}
+
+$$
+\begin{array}{rccccl}
+9 & = & (1001\centerdot)_{2} & = & + 1\centerdot001 \cdot 2^{3} & \Rightarrow 1 \cdot 2^{3} + 1 \cdot 2^{0} = (1+1\cdot 2^{-3})\cdot2^{3} = + 1\centerdot001 \cdot 2^{3}\\
+2 & = & 10 & = & + 1\centerdot00 \cdot 2^{1}\hspace{2.5mm} &\\
+0\centerdot5 & = & \frac{1}{2} & = & + 1\centerdot00 \cdot 2^{-1} &\\
+0\centerdot75 & = & \frac{1}{2} + \frac{1}{4} = (0\centerdot11)_{2} & = & + 1\centerdot10 \cdot 2^{-1} &\\
+\end{array}
+$$
+\vspace{1mm}
+\begin{center}
+\rule{15cm}{0.1mm}
+\end{center}
+\subparagraph{Formatos de ejemplo: (bits usados)}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline 
+Precisión & Signo & Exponente & Mantisa & Total \\ 
+\hline 
+Single & 1 & 8 & 23 & 32 \\ 
+\hline 
+Double & 1 & 11 & 52 & 64 \\ 
+\hline 
+Long Double & 1 & 15 & 64 & 80 \\ 
+\hline 
+\end{tabular}
+\end{center}
+\vspace{1mm}
+\begin{center}
+{Formato Normalizado:\,$ \pm 1\centerdot bbb\ldots \cdot 2^{p}$}\\
+$\downarrow$\\
+\hspace{5cm}(Justificado a la Izquierda - $``$left justified$"$)
+\end{center}
+
+\subparagraph{Ejemplo} 
+
+\begin{center}
+$\bullet$ ¿Qué es $``$1$"$\,en $``$Double Precision$"$\,? \\
+\vspace{1mm}
+Signo : 1\\
+Exponente: 11\\
+Mantisa: 52\\
+\vspace{5mm}
+$1 = + 1 \centerdot \underbrace{ 0000000000000000000000000000000000000000000000000000}_{{\text{mantisa}}\,(52\,\longmapsto\,0's)} \cdot 2^{0}$\\
+
+\vspace{3mm}
+\begin{center}
+\rule{15cm}{0.1mm}
+\end{center}
+\vspace{3mm}
+
+$\bullet$ ¿Cúal es el siguiente número representable? (Double Precision)\\
+\vspace{5mm}
+$1 + $``$2^{-52}" = +1\centerdot 00\ldots \ldots \ldots3 \begin{tabular}{|c|c|c|c|}
+\hline 
+ &  &  & 1 \\ 
+\hline 
+\end{tabular} \cdot 2^0$
+\end{center}
+
+\newtheorem*{mydef}{Definición}
+\begin{mydef}
+El número $``$Machine Epsilon$"$, $\epsilon_{mach}$\,, es la distancia entre 1 y el menor número representable mayor a 1. Para IEEE double precision FPS, \begin{center}
+$\epsilon_{mach}$ $= 2^{-52} \approx 2\cdot 10^{-16}$
+\end{center}
+\end{mydef}
+
+\begin{center}
+¿Cuáles son los problemas?\\
+\vspace{5mm}
+$``$Truncamiento v/s Redondeo$"$
+\end{center}
+
+\subparagraph{Ejemplo}
+\begin{center}
+$$
+\begin{array}{rcc}
+(9\centerdot4)_{10} & = & (1001\centerdot \overline{0110})_{2}\\
+& & \\
+& = & \begin{tabular}{|c|}
+\hline 
++ 1.001\,\,\underline{0110}\,\,\underline{0110}\,\,\ldots\,\,\underline{0110}\,\,\underline{0110}\,\,0\\ 
+\hline 
+\end{tabular}
+\underbrace{110}\ldots \cdot \fbox{$ 2^{3}$ }\\
+& & \hspace{4.5cm}\downarrow\\
+& & \hspace{5cm} ${\text{Esto no se puede almacenar}}$
+\end{array}
+$$
+\end{center}
+\vspace{1cm}
+\begin{center}
+\begin{Large}
+¿Qué hacemos?
+\end{Large}\\
+\vspace{5mm}
+\begin{Huge}
+?
+\end{Huge}\\
+\vspace{5mm}
+Truncamiento $\Rightarrow$\\
+\vspace{5mm}
+Redondeo $\Rightarrow$\\
+\end{center}	
+
+\newpage
+
+\subsection{Regla IEEE de redondeo al más cercano} Para $``$double precision$"$, si el 53vo bit a la derecha del punto binario es 0, redondear hacia abajo (truncar después del bit 52). Si el 53vo bit es 1, entonces redondear hacia arriba (agregar 1 al bit 52), a menos que todos los bits $``$conocidos$"$\, a la derecha de 1 son 0, en este caso 1 es agregado al bit 52 iff el bit 52 es 1.
+
+\begin{center}
+$+1\centerdot \underline{\hspace{3cm}}$\,\fbox{\parbox[c]{2mm} {\hspace{1mm}}}\fbox{\parbox[c]{2mm} {\hspace{1mm}}}\fbox{\parbox[c]{2mm} {\hspace{1mm}}}\fbox{\parbox[c]{2mm} {\hspace{1mm}}}\\
+\hspace{2.8cm} 52\,\,53
+\end{center}
+
+\subparagraph{Ejemplo}
+
+$$
+\begin{array}{rrcl}
+\textbf{1.-} &(9\centerdot4)_{10}& = & +1\centerdot001 \underline{0110} \ldots\ldots 01100 \vline 110 \ldots \cdot 2^{3}\\\\
+
+& & & \hspace{2cm}\Downarrow \, $Aplicando $``$IEEE$"$\,regla de redondeo$\\\\
+
+& & = & \fbox{\parbox[c]{4cm} {$+1\centerdot001 \underline{0110} \ldots\ldots \underline{0110}1$}} \cdot 2^{3}  = \emph{f}l((9\centerdot4)_{10})\\
+& & & \hspace{2cm}\hookrightarrow \, $Esto es lo que $``$llamamos$"\,(9\centerdot4)_{10}\\\\
+
+%________________________________________________________________%
+
+\textbf{2.-} & & = & -1\centerdot0001 \ldots\ldots \ldots\ldots 0001 \vline 1001 \ldots \cdot 2^{8}\\
+& & & \hspace{2cm}\Downarrow\\
+& & = & \fbox{\parbox[c]{4cm} {$-1\centerdot0001 \ldots \ldots \ldots \underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,$ }} \cdot 2^{8} \\\\
+
+%________________________________________________________________%
+
+\textbf{3.-} & & = & +1\centerdot0001 \ldots\ldots\ldots\ldots 0001 \vline 1000 \ldots \cdot 2^{5}\\
+& & & \hspace{2cm}\Downarrow\\
+& & = & \fbox{\parbox[c]{4cm} {$-1\centerdot0001 \ldots \ldots \ldots \underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,$ }} \cdot 2^{5} \\\\
+
+%________________________________________________________________%
+
+\textbf{4.-} & & = & +1\centerdot1001 \ldots\ldots\ldots\ldots 0100 \vline 1000 \ldots \cdot 2^{3}\\
+& & & \hspace{2cm}\Downarrow\\
+& & = & \fbox{\parbox[c]{4cm} {$-1\centerdot1001 \ldots \ldots \ldots \underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,\underline{\hspace{2mm}}\,$ }} \cdot 2^{3} \\
+\end{array}
+$$
+
+\begin{mydef}
+Sea $``$ $X_{c}"$\,la cantidad computada de la cantidad exacta $``$x$"$. Entonces:
+\begin{center}
+Error Absoluto = $\mid X_{c} - X \mid  $\\
+\end{center}
+\vspace{3mm}
+\begin{center}
+y \hspace{1cm} Error Relativo = $\dfrac{\mid X_{c} - X \mid}{\mid x\mid}  , \mid x\mid \neq 0$\\
+\end{center}
+\end{mydef}
+
+\vspace{3mm}
+
+\begin{center}
+\fbox{{\emph{{\Huge ¡MUY IMPORTANTE!}}}}
+\end{center}
+\vspace{3mm}
+\begin{mydef}
+Sea denota el $``$IEEE double precision FPN$"$\,asociado a $``$x$"$, usando la $``$regla IEEE de redondeo al más cercano$"$, por \emph{f}l(x)
+\end{mydef}
+
+\vspace{3mm}
+
+\begin{mydef}
+En el modelo IEEE de aritmética de máquina, el error relativo de redondeo de \emph{f}l(x) no es más que la mitad de $\epsilon_{mach}$:
+\begin{center}
+$\dfrac{\mid\emph{f}l(x)-x\mid}{\mid x \mid} \leqslant \frac{1}{2} \cdot \epsilon_{mach}$
+\end{center}
+\end{mydef}
+
+\vspace{3mm}
+O mejor:\hspace{5mm}
+\begin{center}
+
+\scalebox{1} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.0)(5.235625,1.0)
+\rput(1.0,0.0){\psaxes[linewidth=0.02,labels=none,ticks=none,ticksize=0.1058cm](0,0)(-1,-1)(4,1)}
+\psline[linewidth=0.02cm](2.0,0.32)(2.0,-0.1)
+\psline[linewidth=0.02cm](3.58,0.34)(3.58,-0.08)
+\psline[linewidth=0.02cm](2.8,0.1)(2.8,-0.06)
+\usefont{T1}{ptm}{m}{n}
+\rput(2.735,0.47){x}
+\usefont{T1}{ptm}{m}{n}
+\rput(1.949,-0.325){\footnotesize $1$}
+\usefont{T1}{ptm}{m}{n}
+\rput(4.28,-0.325){\footnotesize $1$\, $+ \, \epsilon_{mach}$}
+\pscustom[linewidth=0.02]
+{
+\newpath
+\moveto(2.68,0.1)
+\lineto(2.68,0.17)
+\curveto(2.68,0.205)(2.66,0.27)(2.64,0.3)
+\curveto(2.62,0.33)(2.575,0.375)(2.55,0.39)
+\curveto(2.525,0.405)(2.475,0.425)(2.45,0.43)
+\curveto(2.425,0.435)(2.375,0.445)(2.35,0.45)
+\curveto(2.325,0.455)(2.265,0.46)(2.23,0.46)
+\curveto(2.195,0.46)(2.14,0.46)(2.08,0.46)
+}
+\pscustom[linewidth=0.02]
+{
+\newpath
+\moveto(2.92,0.1)
+\lineto(2.92,0.17)
+\curveto(2.92,0.205)(2.94,0.27)(2.96,0.3)
+\curveto(2.98,0.33)(3.025,0.375)(3.05,0.39)
+\curveto(3.075,0.405)(3.125,0.425)(3.15,0.43)
+\curveto(3.175,0.435)(3.225,0.445)(3.25,0.45)
+\curveto(3.275,0.455)(3.335,0.46)(3.37,0.46)
+\curveto(3.405,0.46)(3.46,0.46)(3.52,0.46)
+}
+\end{pspicture} 
+}
+\end{center}
+
+\begin{center}
+\fbox{\parbox[c]{15cm}{\Huge $ \hspace{2cm} \mid \emph{f}l(x) - x \mid \leqslant \frac{1}{2} \cdot \epsilon_{mach} \cdot \mid x \mid$}}\\
+\vspace{3mm}
+i.e. El error de representar un número en FPS es proporcional al tamaño del número original.
+\end{center}
+
+\vspace{3mm}
+\begin{center}
+\rule{15cm}{0.1mm}
+\end{center}
+\vspace{3mm}
+
+\begin{center}
+\scalebox{1} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-1.28)(12.96,1.28)
+\psline[linewidth=0.02cm](0.0,-0.612)(0.0,-0.8127)
+\psline[linewidth=0.02cm](0.755,-0.6127)(0.755,-0.8127)
+\psline[linewidth=0.02cm](1.47,-0.6127)(1.473,-0.8127)
+\psline[linewidth=0.02cm](3.022,-0.6127)(3.022,-0.8127)
+\psline[linewidth=0.02cm](6.0076,-0.6127)(6.0076,-0.8127)
+\usefont{T1}{ptm}{m}{n}
+\rput(0.695,-1.1){\footnotesize $\frac{1}{4}$}
+\usefont{T1}{ptm}{m}{n}
+\rput(1.448,-1.1){\footnotesize  $\frac{1}{2}$}
+\usefont{T1}{ptm}{m}{n}
+\rput(2.979,-1.1){\footnotesize $1$}
+\usefont{T1}{ptm}{m}{n}
+\rput(6.004,-1.1){\footnotesize $2$}
+\psline[linewidth=0.02cm](12.09,-0.6)(12.09,-0.8)
+\usefont{T1}{ptm}{m}{n}
+\rput(12.054,-1.1){\footnotesize $4$}
+\psline[linewidth=0.02cm,arrowsize=0.0529cm 2.0,arrowlength=1.4,arrowinset=0.4]{->}(0.037,-0.71)(12.959985,-0.7127344)
+\psline[linewidth=0.02cm](0.906,-0.652)(0.906,-0.75)
+\psline[linewidth=0.02cm](1.32,-0.652)(1.322,-0.75)
+\psline[linewidth=0.02cm](1.85,-0.652)(1.851,-0.77)
+\psline[linewidth=0.02cm](2.64,-0.652)(2.644,-0.77)
+\psline[linewidth=0.02cm](2.26,-0.652)(2.267,-0.77)
+\psline[linewidth=0.02cm](1.13,-0.652)(1.133,-0.75)
+\psline[linewidth=0.02cm](3.77,-0.652)(3.77,-0.77)
+\psline[linewidth=0.02cm](4.53,-0.652)(4.534,-0.77)
+\psline[linewidth=0.02cm](5.28,-0.652)(5.289,-0.77)
+\psline[linewidth=0.02cm](10.57,-0.652)(10.579,-0.77)
+\psline[linewidth=0.02cm](9.068,-0.652)(9.068,-0.77)
+\psline[linewidth=0.02cm](7.556,-0.652)(7.556,-0.77)
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(1.146,-0.339){\rput(0.708,0.38){\footnotesize +1.00$+2^{-2}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(1.846,-1.079){\rput(1.428,0.36){\footnotesize +1.00$+2^{-1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(2.246,-1.479){\rput(1.828,0.36){\footnotesize +1.01$+2^{-1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(2.66,-1.899){\rput(2.248,0.36){\footnotesize +1.10$+2^{-1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(3.046,-2.279){\rput(2.628,0.36){\footnotesize +1.11$+2^{-1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(3.446,-2.719){\rput(3.048,0.34){\footnotesize +1.00$+2^{0}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(4.126,-3.399){\rput(3.728,0.34){\footnotesize +1.01$+2^{0}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(4.88,-4.159){\rput(4.48,0.34){\footnotesize +1.10$+2^{0}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(5.646,-4.919){\rput(5.24,0.34){\footnotesize +1.11$+2^{0}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(6.346,-5.619){\rput(5.94,0.34){\footnotesize +1.00$+2^{1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(7.926,-7.159){\rput(7.508,0.36){\footnotesize +1.01$+2^{1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(9.4,-8.69){\rput(9.028,0.34){\footnotesize +1.10$+2^{1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(10.9,-10.159){\rput(10.508,0.36){\footnotesize +1.11$+2^{1}$}}
+\usefont{T1}{ptm}{m}{n}
+\rput{90.0}(12.46,-11.69){\rput(12.048,0.36){\footnotesize +1.00$+2^{2}$}}
+\end{pspicture} 
+}
+\end{center}
+\hspace{3 cm} $\underbrace{\hspace{3cm}}_{{\text{El número de \emph{fl(x)} entre potencias de 2 es constante}}} \hspace{2cm} \epsilon_{mach} = 2^{-2}$
+
+\vspace{5mm}
+
+\begin{center}
+$+1 \centerdot 0 \cdots \cdots \cdots 0 \cdot 2^{52}$
+\end{center}
+
+\newpage 
+
+\subsection{Representación de Máquina}
+\begin{center}
+Double precision : 8-byte word o 64 bits
+\end{center}
+
+$$\Rightarrow \begin{tabular}{|c|c|c|}
+\hline
+s & $ e_{1} e_{2} \ldots e_{10} e_{11}$ & $ b_{1} b_{2} \ldots \ldots \ldots \ldots b_{51} b_{52}$ \\
+\hline
+1- bit & 11 bits & 52 bits \\ 
+\hline 
+\end{tabular} 
+$$
+
+$$
+s: \left\{\begin{array}{l}
+$0, si el número es positivo$\\ 
+${1, si es negativo}$
+\end{array}\right.
+$$
+
+$$
+\begin{array}{cccc}
+e_{1} \ldots e_{11}:\hspace{1cm} 0 - 2047 \Leftrightarrow & - 1022 & a & 1023 \\ 
+  & \downarrow & & \downarrow\\ 
+  & 1 & - & 2046
+\end{array}
+$$
+\begin{center}
+\scalebox{1} % Change this value to rescale the drawing.
+{
+\begin{pspicture}(0,-2.0)(10.3,2.0)
+\rput(1.13,0.0){\psaxes[linewidth=0.02,arrowsize=0.05cm 2.0,arrowlength=1.4,arrowinset=0.4,labels=none,ticks=none,ticksize=0.11cm]{<->}(0,0)(0,-2)(6,2)}
+\psline[linewidth=0.02cm](1.0,1.6)(1.25,1.6)
+\psline[linewidth=0.02cm](1.0,-1.6)(1.25,-1.6)
+\psline[linewidth=0.02cm](1.5,0.1)(1.5,-0.12)
+\psline[linewidth=0.02cm](1.9,0.1)(1.9,-0.12)
+\psline[linewidth=0.02cm](6.7,0.1)(6.7,-0.12)
+\psline[linewidth=0.02cm](6.3,0.1)(6.3,-0.12)
+\usefont{T1}{ppl}{m}{n}
+\rput(1.47,-0.425){\footnotesize $1$}
+\usefont{T1}{ppl}{m}{n}
+\rput(1.89,-0.425){\footnotesize $2$}
+\usefont{T1}{ppl}{m}{n}
+\rput{90.0}(5.6,-6.88){\rput(6.22,-0.665){\footnotesize $2045$}}
+\usefont{T1}{ppl}{m}{n}
+\rput{90.0}(6.064,-7.39){\rput(6.7,-0.685){\footnotesize $2046$}}
+\usefont{T1}{ppl}{m}{n}
+\rput{33.0}(1.326,-2.5){\rput(4.88,0.995){\footnotesize $y = x - 1023$}}
+\psline[linewidth=0.02cm,fillcolor=black,dotsize=0.0705cm 2.0]{*-*}(1.544,-1.62)(6.704,1.62)
+\usefont{T1}{ppl}{m}{n}
+\rput(0.475,1.6){\footnotesize $1023$}
+\usefont{T1}{ppl}{m}{n}
+\rput(0.425,-1.6){\footnotesize $-1022$}
+\usefont{T1}{ppl}{b}{it}
+\rput(7.7,0.935){\footnotesize $o$}
+\usefont{T1}{ppl}{m}{n}
+\rput(9,0.935){\footnotesize $y + 1023 = x$}
+\end{pspicture} 
+}
+\end{center}
+
+\vspace{3mm}
+\begin{center}
+$\underline{0}\,\, \&\, \underline{2047}\,\, {\text{son}}\, \underline{ ``{\text{diferentes}}"}$\\
+$$
+\begin{array}{cccl}
+1023 & = & 2^{10} -1  &$:\, $``$Exponent bias$"\\ 
+     & = & 2^{11}-1   &\hookrightarrow$\begin{small}Convierte exponentes negativos en exponentes positivos para ser usado en su almacenamiento.\end{small}$
+\end{array}
+$$
+
+$b_{i}$: $``$Los bits de la representación de punto Flotante"\\
+$\pm 1\centerdot b_{1}\,b_{2} \ldots b_{52} \cdot 2^{p} = \pm ( 2^{0} + b_{1}\cdot 2^{-1} + b_{2}\cdot 2^{-2} + \ldots + b_{52}\cdot 2^{-52}) \cdot 2^{p}$
+\end{center}
+
+\begin{center}
+\begin{large}
+\fbox{{$\underbrace{\pm}_{\text{signo}} (1+  \underbrace{\sum_{i=1}^{52 } b_{i}\cdot 2^{-i}) }_{\text{mantisa}}\,  \cdot 2^{p\longmapsto {\text{exponente}}}$ }}
+\end{large}
+\end{center} 
+
+$$
+\emph{Donde:}\,\, p = e_{1} \cdot 2^{10} + e_{2} \cdot 2^{9} e_{3} \cdot 2^{8} + \ldots + e_{11} \cdot 2^{0} - 1023
+$$
+$$
+= (\sum_{i=1}^{11} e_{12-i}\cdot 2^{i-1}) - 1023
+$$
+
+\newpage
+
+\subsection{Casos Especiales de $``P"$ (exponente):}
+\begin{center}
+$
+\begin{array}{ccc}
+0  & y & 2047 \\ 
+\downarrow  &  & \downarrow \\ 
+\underbrace{0 \ldots 0}_{e_{1} \ldots e_{11}} &  &\underbrace{1 \ldots 1}_{e_{1} \ldots e_{11}}
+\end{array} 
+$
+
+\end{center}
+\begin{center}
+\underline{2047} : $\fbox{{11111111111}}$ = \begin{tabular}{|c|}
+\hline 
+$e_{1} e_{2} e_{3} \ldots e_{11}$\\
+\hline 
+\end{tabular}
+\end{center}
+ 
+\vspace{3mm}
+
+\begin{center}
+\begin{tabular}{c|c c c c c|c c c c|c|c|}
+S & $e_{1}$  & $e_{2}$ & $e_{3}$ & \ldots & $e_{11}$ & $b_{1}$ & $b_{2}$ & \ldots & $b_{52}$ & lo que representa & \\ 
+\hline
+0 & 1 & 1 & 1 & \ldots & 1 & 0 & 0 & \ldots & 0 & $+\infty$ & 1/0 \\ 
+1 & 1 & 1 & 1 & \ldots & 1 & 0 & 0 & \ldots & 0 & $-\infty$ & -1/0 \\ 
+1 & 1 & 1 & 1 & \ldots & 1 & x & x & \ldots & x & $\emph{NaN}$ & 0/0 \\ 
+\end{tabular} 
+\end{center}
+
+\vspace{3mm}
+
+\begin{center}
+\begin{tabular}{c c c c c c c c c c c c c c c c c}
+0: & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & = & $e_{1}$ & $e_{2}$ & \ldots & $e_{11}$\\
+\end{tabular}
+
+\vspace{3mm}
+
+$\Rightarrow$ $``$Non-normalized FP number$"$\\
+
+\vspace{5mm}
+
+$\Rightarrow$
+\begin{tabular}{c|c c c c c c c c c c c| c c c c}
+S & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0  & $b_{1}$ & $b_{2}$ & \ldots & $b_{52}$\\
+\hline
+  & $e_{1}$  & $e_{2}$ & $e_{3}$ & $e_{4}$ & $e_{5}$ & $e_{6}$ & $e_{7}$ & $e_{8}$ & $e_{9}$ & $e_{10}$ & $e_{11}$ & & & & \\
+\end{tabular} 
+\end{center}
+
+\vspace{5mm}
+\begin{center}
+$\Rightarrow \pm 0\centerdot b_{1}\,\,b_{2}\,\,b_{3}\,\,\ldots\,\,b_{52}\,\,\cdot 2^{-1022}$\\
+\hspace{2.5cm}$\hookrightarrow$ Sub-normal FP numbers
+\end{center}
+
+\begin{center}
+$\Rightarrow$ El número más pequeño representable es\\
+\vspace{3mm}
+\begin{tabular}{c|c c c| c c c c c}
+0 & 0 & \ldots & 0 & $b_{1}$ & $b_{2}$ & \ldots & 0 & 1\\
+\hline
+S & $e_{1}$ & \ldots & $e_{11}$ & $b_{1}$ & \ldots & \ldots & $e_{51}$ & $e_{52}$\\
+\end{tabular} 
+\end{center}
+$$
+\begin{array}{cl}
+\Rightarrow & +(0\centerdot 0 \dots 0\,1) \cdot 2^{-1022}\\ 
+= & (b_{1}\cdot2^{-1} + b_{2}\cdot2^{-2} + \ldots + b_{52}\cdot2^{-52})\cdot 2^{-1022}\\ 
+= & 1\cdot2^{-52} \cdot 2^{-1022}\\
+= & 2^{-1074} \approx 4.94 \cdot 10^{-324}\\
+\end{array} 
+$$
+
+\vspace{3mm}
+\begin{center}
+\rule{15cm}{0.1mm}
+\end{center}
+\vspace{3mm}
+
+Además tenemos 2 formas de representar 0
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+0 & 0\,0\,\ldots 0 & 0 \ldots 0 & \textbf{+0}\\ 
+\hline 
+1 & 0\,0\,\ldots 0 & 0 \ldots 0 & \textbf{-0}\\ 
+\hline 
+\end{tabular} 
+\end{center}
+
+\newpage
+
+\subsection{Pérdida de Significancia}
+\begin{center}
+
+Calcula $``$ $\sqrt{9\centerdot01} -3"$ en un computador con aritmética de 3-dígitos-decimales.\\
+\vspace{3mm}
+\fbox{ Ayuda\,:\,$\sqrt{9\centerdot01}$ = $3\centerdot00\vline16$}\\
+\vspace{3mm}
+$\sqrt{9\centerdot01} -3$ = 0\\
+\vspace{3mm}
+Resultado $``$exacto$"$: \fbox{$1\centerdot6\cdot 10^{-3}$}\\
+\vspace{3mm}
+\begin{Large}
+¿Qué podemos hacer?\\
+\end{Large}
+\end{center}
+\newpage
+Ex: $\displaystyle{E_{1}(x)= \frac{1-cos(x)}{sin^{2}x}\,,\,E_{2}(x) = \frac{1}{1+cos(x)}\,\, }$¿ son\,$E_{1}(x)\,y\,E_{2}(x)\,$iguales?
+
+\newpage
+Ex: Encuentre las raíces de $\displaystyle{x^{2} + 9^{12}\cdot x = 3}$
+
+\newpage
+Ex: ¿Cuándo habría problemas?
+$$
+f(x)= \frac{1-(1-x)^{3}}{x}, g(x) = \frac{1}{1+x}-\frac{1}{1-x}
+$$
+\newpage
+Ex: Diseñe un algoritmo para calcular las raíces de,\, $x^{2} + b\,\cdot\,x - 10^{-12} = 0, b \geqslant 100$, lo más $``$exactamente$"$ posible.\\
+\vspace{10cm}
+\begin{center}
+\textbf{{\Huge Review de Cálculo (Matemáticas)}}\\
+\end{center}
+
+\vspace{3mm}
+
+\begin{flushleft}
+\textbf{\Large{NUMERICAL ANALYSIS}} \emph{Second Edition - Timothy Sauer}\\
+\vspace{5mm}
+\textbf{\Large{Ver Appendix A: Matrix Algebra}} \emph{página 583 - 589}
+\end{flushleft}
+\begin{itemize}
+	\item[A.1] Matrix Fundamentals
+	\item[A.2] Block Multiplication
+	\item[A.3] Eigenvalues and Eigenvectors
+	\item[A.4] Symmetric Matrices
+	\item[A.5] Vector Calculus
+\end{itemize}
+
+\pagebreak

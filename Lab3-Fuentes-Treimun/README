@@ -1,0 +1,25 @@
+Integrantes:
+- Roberto Felipe Fuentes Zenteno - 201173037-2
+- German Marcelo Treimun Costa - 201173085-2
+
+Supuestos:
+-La versión usada para realizar el laboratorio fue Python 3.5.1-0, usando  Anaconda 
+ 4.0.5.
+-Para algunas preguntas, se analizaron cosas que no estaban
+ explicitamente dichas en el enunciado del laboratorio, con el fin
+ de destacar ciertas cosas importantes.
+-Se asume que las imagenes usadas para resivar el laboratorio contaran con el nombre
+ de las imagenes puestas en la carpeta de ejemplo ("1.png","2.png","3.png").
+-Se adjuntan fotos de ciertas preguntas para poder visualizar de mejor manera los 
+ graficos.
+-Las submatrices formadas para rearmas la matriz son cuadradas siempre.
+
+Explicación:
+-A travez de lo investigado por nosotros mas las indicaciones del laboratorio, 
+transformamos una imagen a una matriz, para luego separarlas en submatrices cuadradas
+y luego de un conjunto de operaciones, dejar una submatriz la cual podemos descomponer
+mediante SVD, para luego tomar los valores singulares mas significativos (es decir,
+los valores singulares mas grandes) y asi poder formar una nueva matriz de imagen
+reconstruida, que pesara menos que la actual, y dependiendo del tamaño de la submatriz
+y del porcentaje que queramos de valores propios, obtener una imagen similar a la original
+pero mas liviana.

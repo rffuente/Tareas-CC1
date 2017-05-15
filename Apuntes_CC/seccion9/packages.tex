@@ -1,0 +1,70 @@
+% Paquetes Apuntes CC1
+% 
+% Define la estructura de los apuntes de CC1
+%
+% Acá se incluyen todos los paquetes de LaTeX que se usarán a lo largo de las
+% secciones del apunte. Este archivo al ser global se debe incluir en cada 
+% sección. Si alguna sección requiere un paquete en específico que otra sección
+% no incluya, se debe incluir localmente en su sección.
+
+\documentclass[spanish,10pt]{article}
+\usepackage{etex}
+% Idioma español
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+%package para uso de python en codigo latex
+\usepackage{python}
+% AMS packages
+\usepackage{amsmath}    % Paquete para escribir matemáticas
+\usepackage{amsthm}     % Paquete que define escritura de teoremas
+\usepackage{amssymb}    % Símbolos matemáticos
+\usepackage{relsize}    % Corregir tamaño de letra al usado actualmente
+% Graficos
+\usepackage[left=25mm, right=25mm]{geometry}
+\usepackage{graphicx}
+% Encabezados
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Apuntes Computación Científica I}
+\lhead{\leftmark}
+\rfoot{\thepage}
+
+
+%\documentclass[spanish,10pt,a4paper]{article}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[spanish]{babel}
+%\usepackage{amsmath}
+%\usepackage{amsthm}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+%\usepackage[left=25mm, right=25mm]{geometry}
+%\usepackage{graphicx}
+\usepackage[pdftex,colorlinks]{hyperref}
+
+\usepackage{palatino}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{url}
+\usepackage[all]{xy}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{multirow}
+\usepackage{array}
+\usetikzlibrary{arrows,shapes}
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+%\fancyhf{}
+%\rhead{Apuntes Computación Científica I}
+%\lhead{\leftmark}
+%\rfoot{\thepage}
+
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+\usepackage{auto-pst-pdf}
+
+\usepackage{algorithm}
+\usepackage{algorithmic}

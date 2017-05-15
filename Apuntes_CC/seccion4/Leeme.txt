@@ -1,0 +1,26 @@
+Apuntes CC1
+Sección 4
+
+No entiendo cómo usar PSTricks. :(
+Los gráficos me salían en la parte superior de la página y cortados, mostrando sólo un pedacito de la figura completa.
+Por ahora me resigné a hacer los gráficos en Wolfram (ya que sólo son 2 y se podría decir que son "abstractos") y colocarlos
+como imágenes, pero al parecer LaTeX le baja la resolución a las imágenes y se ven como borrosas (sin embargo, si
+ves el archivo original en la carpeta /images no se ve tan terrible D:!)
+
+Si alguien me pudiera ayudar con esos dos gráficos que -debieran- ser fáciles de hacer yo sería muy feliz.
+
+
+Sobre la estructura de los archivos... Honestamente, no tengo idea de cómo manejar el tema del makefile. 
+Por ahora los archivos están como debieran estar (seccion4.tex tiene sus paquetes aparte, no tiene el
+\begin{document} y todo eso, etc), pero no está compilable xD Igual incluí el pdf que se genera cuando está
+metido todo junto en seccion4.tex. También necesito ayuda en esto D: alguien ya lo hizo?
+
+Finalmente... Ahora tengo flechitas!
+☆*:.｡. o(≧▽≦)o .｡.:*☆
+
+Editado para agregar:
+La estructura de archivos ya funciona :D Ahora se puede compilar main.tex con TeXMaker.
+Lo que tuve que hacer fue incluir mis propios paquetes en main.tex, porque si lo hacía en
+seccion4.tex no me dejaba, pues está fuera del preámbulo y los paquetes sólo se pueden
+importar dentro del preámbulo D:
+

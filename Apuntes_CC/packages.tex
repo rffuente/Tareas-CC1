@@ -1,0 +1,157 @@
+% Paquetes Apuntes CC1
+% 
+% Define la estructura de los apuntes de CC1
+%
+% Acá se incluyen todos los paquetes de LaTeX que se usarán a lo largo de las
+% secciones del apunte. Este archivo al ser global se debe incluir en cada 
+% sección. Si alguna sección requiere un paquete en específico que otra sección
+% no incluya, se debe incluir localmente en su sección.
+
+\documentclass[spanish,10pt]{article}
+% Idioma español
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage[utf8]{inputenc}
+% AMS packages
+\usepackage{amsmath}    % Paquete para escribir matemáticas
+\usepackage{amsthm}     % Paquete que define escritura de teoremas
+\usepackage{amssymb}    % Símbolos matemáticos
+\usepackage{relsize}    % Corregir tamaño de letra al usado actualmente
+% Graficos
+\usepackage[left=25mm, right=25mm]{geometry}
+\usepackage{graphicx}
+% Encabezados
+\usepackage{fancyhdr}
+%graficos en python
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Apuntes Computación Científica I}
+\lhead{\leftmark}
+\rfoot{\thepage}
+
+
+% ----------- Packages ocupados por la seccion 1 -------------
+\usepackage{etex}
+\usepackage[usenames,dvipsnames]{pstricks}
+\usepackage{epsfig}
+\usepackage{pst-grad} % For gradients
+\usepackage{pst-plot} % For axes
+\usepackage{multirow} 
+\usepackage{graphicx}
+\usepackage{python}
+\usepackage[crop=off]{auto-pst-pdf}
+\usepackage{hhline}
+
+% ----------- Packages ocupados por la seccion 2 -------------
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{complexity}
+\usepackage{wasysym}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage{vwcol}
+\usepackage{multicol}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{matrix}
+\usetikzlibrary{decorations.pathreplacing,intersections}
+
+% ----------- Packages ocupados por la seccion 3 -------------
+\usepackage{mathtools}
+%\usepackage{tikz}
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{epsfig}
+%\usepackage{pst-grad} % For gradients
+%\usepackage{pst-plot} % For axes
+%\usepackage{auto-pst-pdf}
+
+% ----------- Packages usados en la seccion 4 -----------
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{nccmath}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{float}
+
+% ----------- Packages ocupados por la seccion 5 -------------
+%\usepackage{amsfonts} 
+%\usepackage{mathrsfs} 
+%\usepackage{complexity} 
+%\usepackage{wasysym}
+%\usepackage{fourier} 
+%\usepackage{array}
+%\usepackage{enumitem}
+%\usepackage{amsfonts}
+%\usepackage{tikz}
+\usetikzlibrary{shapes,snakes}
+%\usepackage{undertilde}
+\usepackage[algo2e]{algorithm2e}
+\usepackage{arydshln}
+
+% ----------- Packages ocupados por la seccion 6y7 ------------
+\usepackage{tabu}
+\usepackage{ulem}
+\usepackage{nccmath}
+\usepackage{xparse}
+\usepackage{arydshln}
+\usepackage{mdframed}
+\usepackage{xfrac}
+\usepackage{paracol}
+\usepackage{fix-cm}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+% ----------- Packages usados por la seccion 8 -------------
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{ulem}
+\usepackage{wasysym}
+\usepackage{multirow}
+%\usepackage{enumerate} NO DESCOMENTAR
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{epsfig}
+%\usepackage{pst-grad} % For gradients
+%\usepackage{pst-plot} % For axes
+%\usepackage[crop=off]{auto-pst-pdf}
+
+% ----------- Packages usados por la seccion 9 -------------
+\usepackage[pdftex,colorlinks]{hyperref}
+\usepackage{palatino}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{subfig}
+\usepackage{url}
+\usepackage[all]{xy}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{multirow}
+\usepackage{array}
+\usetikzlibrary{arrows,shapes}
+
+% ----------- Packages usados por la seccion 10 -------------
+% Los mismos que en la seccion 1
+
+% ----------- Packages usados por la seccion 11 -------------
+%\usepackage[algo2e]{algorithm2e} %extra, ya está en sección 4
+% este paquete colisiona con el paquete algorithm de la sección 3 así que tuve que cambiar
+% \begin{algorithm} o algo así por \begin{algorithm2e} en el .tex
+% ...
+% Me engañaron, lo incluyó pero no lo usó nunca xD
+
+% ----------- Packages usados en la seccion 12y13 ----------
+% Los mismos de la seccion 1
+
+% ----------- Packages usados en la seccion 14 ----------
+\usepackage{tikz}			%primer grafico
+\usepackage[only, shortrightarrow]{stmaryrd}			%algunas flechas y otros comandos
+\usepackage{algorithm}		%Entorno algoritmo
+\usepackage{marvosym}			% Smiley face
+\usepackage{algorithmic}		%Algoritmo
+\usepackage{ulem}			%Subrayado con curvas para los vectores
+%\usepackage{undertilde}			%Subrayado con curvas para letras con mas de un argumento
+\usetikzlibrary{matrix}
+\usetikzlibrary{decorations.pathreplacing,intersections}
+
+
+

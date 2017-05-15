@@ -1,0 +1,33 @@
+\begin{python}
+import numpy as np
+import matplotlib.pyplot as plt
+
+def Chebyshev(n,ax=None):
+    x = [np.cos(((2*i-1)*np.pi)/(2*n)) for i in range(1,n+1)]
+    y = [np.sin(((2*i-1)*np.pi)/(2*n)) for i in range(1,n+1)]
+    if ax == None:
+        return np.array(x)
+    ax.set_ylim(-0.1,1.1)
+    ax.set_xlim(-1.1,1.1)
+    ax.plot(np.cos(np.linspace(0,np.pi)),np.sin(np.linspace(0,np.pi)),'k-')
+    ax.plot([-2,2],[0,0],'k-')
+    ax.plot([0,0],[-1,2],'k-')
+    for i in range(len(y)):
+        ax.plot([x[i],x[i]],[0,y[i]],'r-')
+        ax.plot([0,x[i]],[0,y[i]],'r-')
+    ax.plot(x,[0]*len(x),'ro')
+    ax.plot(x,y,'ro')
+    ax.set_title('n = '+str(n))
+    plt.savefig('fig1.pdf', format='pdf')
+    print(r"""
+    \begin{figure}[htbp]
+       \centering
+        \includegraphics[width=12cm]{fig1.pdf}
+        \caption{Here goes the caption}
+        \label{fig:comparison}
+    \end{figure}
+    """)
+    
+f, (ax1) = plt.subplots(1, figsize=(10,5.7))
+Chebyshev(5,ax1)
+\end{python}

@@ -1,0 +1,30 @@
+Integrantes:
+- Roberto Felipe Fuentes Zenteno - 201173037-2
+- German Marcelo Treimun Costa - 201173085-2
+
+Supuestos:
+-La versión usada para realizar el laboratorio fue Python 3.5.1-0, usando  Anaconda 
+ 4.0.5.
+-Para algunas preguntas, se analizaron cosas que no estaban
+ explicitamente dichas en el enunciado del laboratorio, con el fin
+ de destacar ciertas cosas importantes.
+-No se uso el magic “%matplotlib inline”, ya que para la segunda parte de este 
+ laboratorio los gráficos solo se mostraban fuera del notebook. Para analizar
+ la primera parte del laboratorio, si se quieren los gráficos dentro del notebook 
+ se deberá colocar al inicio de este el magic mencionado.
+-Se colocaron 4 fotos de la segunda parte de la experiencia. Hay una captura
+de la segunda simulación, y 3 capturas de la primera simulación, para observar
+en 3 momentos como se comporta la simulación en distintos momentos.
+
+Explicación:
+-A travez de ciertos algoritmos y técnicas enseñadas en clases, responderemos las 
+ preguntas del laboratorio acerca de los temas
+ metodos iterativos (jacobi, gauss-seidel, sor), y compararlos entre si para
+ ver ciertos elementos importantes (como tiempo y consumo de memoria). Ademas, 
+ se analizara metodos directos (PA=LU) y metodos de convergencia iterativas finitas
+ (gradiente conjugado), y veremos como varían los puntos dichos anteriormente con 
+ respecto a los otros métodos iterativos.
+ 
+ Por otra parte, analizaremos a travez de la convergencia de Newton en n-D, como
+ se comporta el sistema de ecuaciones de Lorenz, y ver como afectan pequeñas
+ perturbaciones a este sistema. 

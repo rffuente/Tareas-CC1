@@ -1,0 +1,39 @@
+% Paquetes Apuntes CC1
+% 
+% Define la estructura de los apuntes de CC1
+%
+% Acá se incluyen todos los paquetes de LaTeX que se usarán a lo largo de las
+% secciones del apunte. Este archivo al ser global se debe incluir en cada 
+% sección. Si alguna sección requiere un paquete en específico que otra sección
+% no incluya, se debe incluir localmente en su sección.
+
+\documentclass[spanish,10pt]{article}
+% Idioma español
+\usepackage[spanish,es-noquoting]{babel}
+\usepackage[utf8]{inputenc}
+% AMS packages
+\usepackage{amsmath}    % Paquete para escribir matemáticas
+\usepackage{amsthm}     % Paquete que define escritura de teoremas
+\usepackage{amssymb}    % Símbolos matemáticos
+\usepackage{relsize}    % Corregir tamaño de letra al usado actualmente
+% Graficos
+\usepackage[left=25mm, right=25mm]{geometry}
+\usepackage{graphicx}
+\usepackage{python}
+% Encabezados
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Apuntes Computación Científica I}
+\lhead{\leftmark}
+\rfoot{\thepage}
+
+% ----------- Packages usados en la seccion 3 -----------
+\usepackage[]{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{nccmath}
+\usepackage{tikz}
+\usepackage{enumitem}
+\usepackage{float}
+

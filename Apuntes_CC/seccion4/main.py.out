@@ -1,0 +1,7 @@
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=18cm]{images/fig1.pdf}
+    \label{fig:comparison}
+\end{figure}
+
